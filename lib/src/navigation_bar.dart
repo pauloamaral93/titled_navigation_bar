@@ -14,7 +14,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
   int currentIndex;
   final ValueChanged<int> onTap;
   final List<TitledNavigationBarItem> items;
-  final double indicatorMargin;
+  double indicatorMargin;
 
   TitledBottomNavigationBar({
     Key key,
@@ -25,7 +25,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
     this.activeColor,
     this.inactiveColor,
     this.indicatorColor,
-    this.indicatorMargin,
+    this.indicatorMargin = 0,
     @deprecated this.initialIndex = 0,
     this.currentIndex = 0,
   })  : assert(items != null),
