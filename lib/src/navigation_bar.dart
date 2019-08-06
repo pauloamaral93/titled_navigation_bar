@@ -14,6 +14,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
   int currentIndex;
   final ValueChanged<int> onTap;
   final List<TitledNavigationBarItem> items;
+  final double indicatorMargin
 
   TitledBottomNavigationBar({
     Key key,
@@ -24,6 +25,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
     this.activeColor,
     this.inactiveColor,
     this.indicatorColor,
+    this.indicatorMargin,
     @deprecated this.initialIndex = 0,
     this.currentIndex = 0,
   })  : assert(items != null),
@@ -53,8 +55,6 @@ class _TitledBottomNavigationBarState extends State<TitledBottomNavigationBar>
 
   @override
   void initState() {
-    _select(widget.currentIndex);
-
     super.initState();
   }
 
@@ -104,6 +104,7 @@ class _TitledBottomNavigationBarState extends State<TitledBottomNavigationBar>
                   curve: curve,
                   duration: duration,
                   child: Container(
+                    margin: EdgeInsets.only(left: widget.indicatorMargin,right:widget.indicatorMargin),
                     color: widget.indicatorColor ?? activeColor,
                     width: width / items.length,
                     height: INDICATOR_HEIGHT,
@@ -121,7 +122,7 @@ class _TitledBottomNavigationBarState extends State<TitledBottomNavigationBar>
     widget.currentIndex = index;
     widget.onTap(widget.currentIndex);
 
-    setState(() {});
+    //setState(() {});
   }
 
   Widget _buildIcon(TitledNavigationBarItem item) {
