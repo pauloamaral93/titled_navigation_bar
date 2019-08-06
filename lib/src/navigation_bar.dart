@@ -14,7 +14,7 @@ class TitledBottomNavigationBar extends StatefulWidget {
   int currentIndex;
   final ValueChanged<int> onTap;
   final List<TitledNavigationBarItem> items;
-  final double indicatorMargin
+  final double indicatorMargin;
 
   TitledBottomNavigationBar({
     Key key,
